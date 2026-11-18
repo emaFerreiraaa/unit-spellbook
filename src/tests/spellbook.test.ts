@@ -44,6 +44,13 @@ test("Filtra correctamente los spells por first apareance", () => {
     book.addspell(spellBook);
     book.addspell(spellBook2);
     book.addspell(spellMovie);    
-    expect( book.countByOrigin()).toEqual({book:2, movie: 1, videogame: 0});
+    expect( book.countByOrigin()).toEqual({book:2, movie: 1, videogame: 0, serie: 0});
+});
+
+test("Deja agregar correctamente una seria", () => {
+    const book = new Spellbook();
+    const spellSerie = new Spell("Lumos", "Creates light", "serie");
+    book.addspell(spellSerie);    
+    expect(book.getSpells()).toContain(spellSerie);
 });
 
